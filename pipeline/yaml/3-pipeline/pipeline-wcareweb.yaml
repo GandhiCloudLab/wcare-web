@@ -1,0 +1,47 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: pipeline-wcare
+  namespace: wcare-tekton-ns
+spec:
+  resources:
+    - name: git-source-repo
+      type: git
+    - name: docker-image-registry
+      type: image
+  params:  
+    - name: pathToDeploymentFiles
+      description: kubectl yaml files
+      default: /workspace/git-repo/deployment/yaml
+  tasks:
+    - name: run-test
+      taskRef:
+        name: task-package-test
+      resources:
+        inputs:
+          - name: source-repo
+            resource: git-source-repo
+    - name: build
+      taskRef:
+        name: task-build-scan-push
+      runAfter:
+       - run-test
+      resources:
+        inputs:
+          - name: source-repo
+            resource: git-source-repo
+        outputs:
+          - name: image-registry
+            resource: docker-image-registry
+    - name: deploy
+      taskRef:
+        name: task-deploy
+      runAfter:
+       - build
+      params:
+        - name: pathToDeploymentFiles
+          value: "$(params.pathToDeploymentFiles)"       
+      resources:
+        inputs:
+          - name: source-repo
+            resource: git-source-repo
