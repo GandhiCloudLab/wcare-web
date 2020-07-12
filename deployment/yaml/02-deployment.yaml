@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: container-wcareweb
-          image: "image-registry.openshift-image-registry.svc:5000/wcare-ns/wcareweb:latest"
+          image: image-registry.openshift-image-registry.svc:5000/wcare-ns/wcareweb:latest
           imagePullPolicy: Always
           ports:
             - name: my-http

@@ -14,18 +14,18 @@ spec:
       description: kubectl yaml files
       default: /workspace/git-repo/deployment/yaml
   tasks:
-    - name: run-test
-      taskRef:
-        name: task-package-test
-      resources:
-        inputs:
-          - name: source-repo
-            resource: git-source-repo
+    # - name: run-test
+    #   taskRef:
+    #     name: task-package-test
+    #   resources:
+    #     inputs:
+    #       - name: source-repo
+    #         resource: git-source-repo
     - name: build
       taskRef:
         name: task-build-scan-push
-      runAfter:
-       - run-test
+      # runAfter:
+      #  - run-test
       resources:
         inputs:
           - name: source-repo
