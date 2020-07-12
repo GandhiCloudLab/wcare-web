@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: classic-wcareweb
-  namespace: classic-sample-ns
+  name: wcareweb
+  namespace: wcare-ns
   labels:
-    app: classic-sample-application
+    app: wcare-application
     subname: wcareweb
 spec:
   type: ClusterIP
@@ -13,5 +13,5 @@ spec:
       port: 9090
       targetPort: my-http
   selector:
-    app: classic-sample-application
+    app: wcare-application
     subname: wcareweb
