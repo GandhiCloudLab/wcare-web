@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: classic-wcareweb
+  namespace: classic-sample-ns
+  labels:
+    app: classic-sample-application
+    subname: wcareweb
+spec:
+  selector:
+    matchLabels:
+      app: classic-sample-application
+      subname: wcareweb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: classic-sample-application
+        subname: wcareweb
+    spec:
+      containers:
+        - name: container-wcareweb
+          image: "gandhicloudlab/classic-wcareweb:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: my-http
+              containerPort: 9030
