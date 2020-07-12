@@ -20,8 +20,13 @@ spec:
     spec:
       containers:
         - name: container-wcareweb
-          image: "gandhicloudlab/wcareweb:latest"
+          image: "image-registry.openshift-image-registry.svc:5000/wcare-ns/wcareweb:latest"
           imagePullPolicy: Always
           ports:
             - name: my-http
               containerPort: 9020
+          env:
+            - name: prop.api.server.url.user
+              value: http://wcareuser:9090
+            - name: prop.api.server.url.financialplan
+              value: http://wcarefinance:9090
