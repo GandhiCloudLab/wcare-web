@@ -29,5 +29,5 @@ spec:
           env:
             - name: prop.api.server.url.user
               value: http://wcareuser:9090
-            - name: prop.api.server.url.financialplan
+            - name: prop.api.server.url.finance
               value: http://wcarefinance:9090
