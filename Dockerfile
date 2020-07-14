@@ -8,8 +8,8 @@ RUN ls -l target
 
 FROM anapsix/alpine-java:8
 WORKDIR /
-COPY --from=builder /target/wcareweb-service-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /target/wcareweb-service-0.0.1-SNAPSHOT.war app.war
 RUN ls -l
-RUN sh -c 'touch /app.jar'
-EXPOSE 9030
-ENTRYPOINT ["java","-jar","/app.jar"]
+RUN sh -c 'touch /app.war'
+EXPOSE 9020
+ENTRYPOINT ["java","-jar","/app.war"]

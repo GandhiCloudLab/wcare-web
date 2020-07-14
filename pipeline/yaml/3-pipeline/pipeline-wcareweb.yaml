@@ -23,16 +23,30 @@ spec:
     #         resource: git-source-repo
     - name: build
       taskRef:
-        name: task-build-scan-push
-      # runAfter:
-      #  - run-test
+        name: buildah-v0-10-0
+        kind: ClusterTask
       resources:
         inputs:
-          - name: source-repo
-            resource: git-source-repo
+        - name: source
+          resource: git-source-repo
         outputs:
-          - name: image-registry
-            resource: docker-image-registry
+        - name: image
+          resource: docker-image-registry
+      params:
+        - name: TLSVERIFY
+          value: "false"    
+    # - name: build
+    #   taskRef:
+    #     name: task-build-scan-push
+    #   # runAfter:
+    #   #  - run-test
+    #   resources:
+    #     inputs:
+    #       - name: source-repo
+    #         resource: git-source-repo
+    #     outputs:
+    #       - name: image-registry
+    #         resource: docker-image-registry
     - name: deploy
       taskRef:
         name: task-deploy
