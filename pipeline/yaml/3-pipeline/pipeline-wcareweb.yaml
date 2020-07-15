@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
 metadata:
   name: pipeline-wcare
-  namespace: wcare-tekton-ns
+  namespace: wcare-ns
 spec:
   resources:
     - name: git-source-repo
@@ -23,7 +23,7 @@ spec:
     #         resource: git-source-repo
     - name: build
       taskRef:
-        name: buildah-v0-10-0
+        name: buildah
         kind: ClusterTask
       resources:
         inputs:
