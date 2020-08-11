@@ -15,7 +15,7 @@ spec:
   steps:
     - name: deploy
       image: quay.io/openshift/origin-cli:latest
-      workingDir: /workspace/source
+      workingDir: /workspace/source-repo
       command: ['/bin/bash', '-c']
       args:
       - |-

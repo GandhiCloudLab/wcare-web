@@ -7,20 +7,14 @@ spec:
   resources:
     - name: git-source-repo
       type: git
+      # default: https://github.com/GandhiCloudLab/wcare-web
     - name: docker-image-registry
       type: image
-  params:  
+      # default: image-registry.openshift-image-registry.svc:5000/wcare-ns/wcareweb:latest
+  params:
     - name: pathToDeploymentFiles
-      description: kubectl yaml files
-      default: /workspace/git-repo/deployment/yaml
+      default: /workspace/source-repo/deployment/yaml
   tasks:
-    # - name: run-test
-    #   taskRef:
-    #     name: task-package-test
-    #   resources:
-    #     inputs:
-    #       - name: source-repo
-    #         resource: git-source-repo
     - name: build
       taskRef:
         name: buildah
@@ -34,27 +28,15 @@ spec:
           resource: docker-image-registry
       params:
         - name: TLSVERIFY
-          value: "false"    
-    # - name: build
-    #   taskRef:
-    #     name: task-build-scan-push
-    #   # runAfter:
-    #   #  - run-test
-    #   resources:
-    #     inputs:
-    #       - name: source-repo
-    #         resource: git-source-repo
-    #     outputs:
-    #       - name: image-registry
-    #         resource: docker-image-registry
+          value: "false"
     - name: deploy
       taskRef:
         name: task-deploy
       runAfter:
-       - build
+        - build
       params:
         - name: pathToDeploymentFiles
-          value: "$(params.pathToDeploymentFiles)"       
+          value: "$(params.pathToDeploymentFiles)"
       resources:
         inputs:
           - name: source-repo
