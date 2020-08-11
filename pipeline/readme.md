@@ -2,7 +2,7 @@
 
 Wcare consists of 3 microservices.
 - Wcare Web
-- Wcare Finanance
+- Wcare Finance
 - Wcare User
 
 This document explain about the following
@@ -78,7 +78,7 @@ Once the pipeline run is completed the screen would looks like this.
 
 ### 2. Run Pipeline for Wcare Finanace
 
-Repeat the above steps for Finanance microservice. But you need to the below parameters.
+Repeat the above steps for Finance microservice. But you need to the below parameters.
 
 ```
 git-source-repo = https://github.com/GandhiCloudLab/wcare-finance
@@ -90,9 +90,9 @@ docker-image-registry = image-registry.openshift-image-registry.svc:5000/wcare-n
 
 It may show the previous params, you need to click on `Create New Pipeline Resource`
 
-### 3. Run Pipeline for Wcare Finanace
+### 3. Run Pipeline for Wcare User
 
-Repeat the above steps for Finanance microservice. But you need to the below parameters.
+Repeat the above steps for User microservice. But you need to the below parameters.
 
 ```
 git-source-repo = https://github.com/GandhiCloudLab/wcare-user
