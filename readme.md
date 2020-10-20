@@ -23,7 +23,7 @@ sh ./build-dockerhub.sh
 
 -------------
 
-### 2.2. Installation Steps
+### 2.2. Deploy the app in OCP
 
 1. Open the file `/deployment/yaml/02-deployment/yaml`
 
@@ -40,7 +40,7 @@ sh 01-install.sh
 ```
 -------------
 
-### 2.3. Accessing the installed application
+### 2.3. Accessing the deployed application
 
 1. Run the below command to find the routes installed.
 
