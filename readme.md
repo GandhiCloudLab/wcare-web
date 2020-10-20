@@ -1,17 +1,19 @@
 # WCare Web 
 
-## Installation via Tekton
+## 1. Installation via Tekton
 
-## Manual Installation 
+Refer [Installation via Tekton](pipeline) 
+
+## 2. Manual Installation 
 
 
-### 1. Build Docker Images
+### 2.1. Build Docker Images
 
 1. Download this project from git
 
 2. Open the file `build-dockerhub.sh` 
 
-3. Modify the dockerhub id accordingly at line nos. 5,6 and 7.
+3. Modify the dockerhub id accordingly in line nos. 5, 6 and 7.
 
 4. Run the sh file to create docker image.
 
@@ -21,7 +23,7 @@ sh ./build-dockerhub.sh
 
 -------------
 
-### 2. Installation Steps
+### 2.2. Installation Steps
 
 1. Open the file `/deployment/yaml/02-deployment/yaml`
 
@@ -38,7 +40,7 @@ sh 01-install.sh
 ```
 -------------
 
-### 3. Accessing the installed application
+### 2.3. Accessing the installed application
 
 1. Run the below command to find the routes installed.
 
