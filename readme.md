@@ -15,13 +15,20 @@ Refer [Installation via Tekton](pipeline)
 
 3. Modify the dockerhub id accordingly in line nos. 5, 6 and 7.
 
-4. Run the sh file to create docker image.
+4. Create Docker image 
+
+4.1. Run the below sh file to create docker image and push to dockerhub.com
 
 ```
 sh ./build-dockerhub.sh
 ``` 
-
 Note: It will ask for image registry (dockerhub) password and you would need to enter it. 
+
+4.b. Run the below sh file to create docker image and push to openshift 3.11 internal registry.
+
+```
+sh ./build-docker-ocp311.sh
+``` 
 
 -------------
 
