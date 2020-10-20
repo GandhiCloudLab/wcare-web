@@ -21,6 +21,8 @@ Refer [Installation via Tekton](pipeline)
 sh ./build-dockerhub.sh
 ``` 
 
+Note: It will ask for image registry (dockerhub) password and you would need to enter it. 
+
 -------------
 
 ### 2.2. Deploy the app in OCP
