@@ -2,10 +2,8 @@
 
 echo "build Started ...."
 
+docker login -u gandhicloudlab
 docker build -f Dockerfile -t gandhicloudlab/wcareweb:latest . --no-cache
-
-# docker login -u gandhicloudlab
-
 docker push gandhicloudlab/wcareweb:latest
 
 echo "build completed ...."
