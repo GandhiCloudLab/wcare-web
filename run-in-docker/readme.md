@@ -2,7 +2,7 @@
 
 The objective of this document is to explain about how two docker Containers are communicating in the same VM.
 
-There are two services called `Wcare-User` and `Wcare-Web` are available. The `Wcare-Web` service depends on `Wcare-user` service. Lets see how to make `Wcare-Web` service calls the `Wcare-User` service.
+There are two services called `Wcare-User` and `Wcare-Web`. The `Wcare-Web` service depends on `Wcare-user` service. Lets see how to make `Wcare-Web` service calls the `Wcare-User` service.
 
 ## Steps
 
@@ -63,7 +63,7 @@ Note : The <IP_ADDRESS> should have been replaced with the ip address retrived a
 ```
 USER_URL=http://<IP_ADDRESS>:9021
 
-docker run --publish 9020:9020 -e PROP_API_SERVER_URL_USER=$USER_URL gandhicloudlab/wcareweb
+docker run -p 9020:9020 -e PROP_API_SERVER_URL_USER=$USER_URL gandhicloudlab/wcareweb
 ```
 
 This should start the `wcareweb` service in docker.
